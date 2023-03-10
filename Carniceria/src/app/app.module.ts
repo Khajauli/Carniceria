@@ -9,6 +9,10 @@ import { HomeComponent } from './components/home/home.component';
 import { EncabezadoComponent } from './components/encabezado/encabezado.component';
 import { PieComponent } from './components/pie/pie.component';
 import { IngresarCarneComponent } from './components/ingresar-carne/ingresar-carne.component';
+import { CarnesComponent } from './components/carnes/carnes.component';
+import { EditarCarneComponent } from './components/editar-carne/editar-carne.component';
+import { DetalleCarneComponent } from './components/detalle-carne/detalle-carne.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,11 @@ import { IngresarCarneComponent } from './components/ingresar-carne/ingresar-car
     HomeComponent,
     EncabezadoComponent,
     PieComponent,
-    IngresarCarneComponent
+    IngresarCarneComponent,
+    CarnesComponent,
+    EditarCarneComponent,
+    DetalleCarneComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,
