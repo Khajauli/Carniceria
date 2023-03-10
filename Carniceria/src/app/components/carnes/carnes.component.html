@@ -1,9 +1,22 @@
 <h2>SELECCION DE CARNES</h2>
 <ul>
     <li *ngFor="let carne of carnes"  class="carne">
-        <a [routerLink]="['carne/', carne._id]">
+        <a [routerLink]="['/detalleCarne/', carne._id]">
             <img src="{{url+'get-imagen/'+carne.imagen}}" *ngIf="carne.imagen">
             <h3>{{carne.nombre}}-{{carne.expiracion}}</h3>
         </a>
     </li>
+</ul>
+
+<h2>Buscando algo en especifico?</h2>
+<input type="text" name="word" #word="ngModel" [(ngModel)]="nombre" required>
+<button (click)="getResultados()">Buscar</button>
+
+<ul>
+  <li *ngFor="let resultado of resultados">
+    <a [routerLink]="['/detalleCarne/', resultado._id]">
+        <img src="{{url+'get-imagen/'+resultado.imagen}}" *ngIf="resultado.imagen">
+        <h3>{{resultado.nombre}}-{{resultado.expiracion}}</h3>
+    </a>
+  </li>
 </ul>

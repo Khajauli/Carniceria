@@ -12,6 +12,8 @@ import { Global } from 'src/app/services/global';
 })
 export class CarnesComponent implements OnInit{
   public carnes:Carne[];
+  public resultados:Carne[];
+  public nombre:string;
   public url:string;
 
   constructor(
@@ -19,13 +21,15 @@ export class CarnesComponent implements OnInit{
   ){
     this.url=Global.url;
     this.carnes=[];
+    this.resultados=[];
+    this.nombre='';
   }
 
 
   ngOnInit():void{
-    this.getPeliculas();
+    this.getCarnes();
   }
-  getPeliculas(){
+  getCarnes(){
   this._carneService.getCarnes().subscribe(
     response=>{
       if (response.carnes){
@@ -38,4 +42,18 @@ export class CarnesComponent implements OnInit{
     }
   );
 }
+
+  getResultados(){
+    this._carneService.nombreCarne(this.nombre).subscribe(
+      response=>{
+        if(response.carne){
+          this.resultados=response.carne;
+          console.log(this.resultados);
+        }
+      },
+      error=>{
+        console.log(<any>error);
+      }
+    )
+  }
 }
