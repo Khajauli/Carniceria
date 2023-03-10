@@ -47,6 +47,7 @@ export class IngresarCarneComponent implements OnInit{
             this._cargarService.peticionRequest(Global.url+"subir-imagen/"+response.carne._id,[],this.archivosParaCargar,'imagen')
             .then((result:any)=>{
               this.carneGuardar=result.response;
+              this.idGuardado=result.carne._id;
               this.status='success';
               form.reset();
               this.fileInput.nativeElement.value='';

@@ -1,1 +1,9 @@
-<p>carnes works!</p>
+<h2>SELECCION DE CARNES</h2>
+<ul>
+    <li *ngFor="let carne of carnes"  class="carne">
+        <a [routerLink]="['carne/', carne._id]">
+            <img src="{{url+'get-imagen/'+carne.imagen}}" *ngIf="carne.imagen">
+            <h3>{{carne.nombre}}-{{carne.expiracion}}</h3>
+        </a>
+    </li>
+</ul>

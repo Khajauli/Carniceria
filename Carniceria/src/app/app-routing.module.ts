@@ -10,8 +10,8 @@ import { IngresarCarneComponent } from './components/ingresar-carne/ingresar-car
 const routes: Routes = [
     {path:'inicio',component:HomeComponent},
     {path:'ingresarCarne',component:IngresarCarneComponent},
-    {path:'editarCarne',component:EditarCarneComponent},
-    {path:'detalleCarne',component:DetalleCarneComponent},
+    {path:'editarCarne/:id',component:EditarCarneComponent},
+    {path:'detalleCarne/:id',component:DetalleCarneComponent},
     {path:'contacto',component:ContactoComponent},
     {path:'carnes',component:CarnesComponent}
   ];

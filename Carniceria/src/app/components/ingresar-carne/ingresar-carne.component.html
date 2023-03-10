@@ -1,6 +1,6 @@
 <div class="container">
     <div class="message success" *ngIf="status=='success'">
-        La carne se ha guardado correctamente, puedes verla <a [routerLink]="['/home']">aquí</a>.
+        La carne se ha guardado correctamente, puedes verla <a [routerLink]="['/detalleCarne',idGuardado]">aquí</a>.
     </div>
     <div class="message failed" *ngIf="status=='failed'">
         La carne no se ha podido guardar.

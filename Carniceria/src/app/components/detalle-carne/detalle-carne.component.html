@@ -1,1 +1,23 @@
-<p>detalle-carne works!</p>
+<h2>DETALLE DE LAS CARNES DISPONIBLES</h2>
+<div class="container" *ngIf="carne">
+    <div class="imagen" *ngIf="carne.imagen">
+        <img src="{{url+'get-imagen/'+carne.imagen}}" *ngIf="carne.imagen">
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="data">
+    <h3>{{carne.nombre}}</h3>
+    <h3>{{carne.tipo}}</h3>
+    <h3>{{carne.expiracion}}</h3>
+    <h3>{{carne.entrega}}</h3>
+    <p *ngIf="confirm == false">
+        <button [routerLink]="['/editarCarne',carne._id]" class="button-edit">Editar</button>
+        <button (click)="setConfirm(true)" class="button-delete">Borrar</button>
+    </p>
+
+    <p *ngIf="confirm == true">
+        <span class="confirm">Estas seguro de eliminar el corte de carne</span> <br>
+        <button (click)="setConfirm(false)" class="button-edit">Cancelar</button>
+        <button (click)="borrarCarne(carne._id)" class="button-delete">eliminar definitivamente</button>
+    </p>
+</div>
