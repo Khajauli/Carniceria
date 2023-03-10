@@ -9,7 +9,7 @@ router.get('/inicio',carnesRouter.getInicio);
 router.post('/guardar-carne',carnesRouter.saveCarne);
 router.get('/carnes',carnesRouter.getCarnes);
 router.get('/carne/:id',carnesRouter.getCarne);
-router.get('/nombreCarne/:id',carnesRouter.nombreCarne);
+router.get('/nombre-carne/:nombre',carnesRouter.nombreCarne);
 router.put('/carne/:id',carnesRouter.updateCarne);
 router.delete('/carne/:id',carnesRouter.deleteCarne);
 router.post('/subir-imagen/:id',multupartyMiddleWare,carnesRouter.uploadImage);

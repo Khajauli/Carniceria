@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="message success" *ngIf="status=='success'">
+        La carne se ha guardado correctamente, puedes verla <a [routerLink]="['/home']">aquí</a>.
+    </div>
+    <div class="message failed" *ngIf="status=='failed'">
+        La carne no se ha podido guardar.
+    </div>
+    <form #carneForm="ngForm" (ngSubmit)="guardarCarne(carneForm)">
+        <p>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="carne.nombre" required>
+            <span *ngIf="nombre.touched && !nombre.valid">
+                Nombre obligatorio
+            </span>
+        </p>
+        <p>
+            <label for="tipo">Tipo</label>
+            <input type="text" name="tipo" #tipo="ngModel" [(ngModel)]="carne.tipo" required>
+            <span *ngIf="tipo.touched && !tipo.valid">
+                Tipo obligatorio
+            </span>
+        </p>
+        <p>
+            <label for="expiracion">Expiracion</label>
+            <input type="text" name="expiracion" #expiracion="ngModel" [(ngModel)]="carne.expiracion" required  pattern="\d{4}-\d{2}-\d{2}" placeholder="YYYY-MM-DD">
+            <span *ngIf="expiracion.touched && !expiracion.valid">
+                Fecha de expircion obligatoria
+            </span>
+        </p>
+        <p>
+            <label for="entrega">Entrega</label>
+            <input type="text" name="entrega" #entrega="ngModel" [(ngModel)]="carne.entrega" required  pattern="\d{4}-\d{2}-\d{2}" placeholder="YYYY-MM-DD">
+            <span *ngIf="entrega.touched && !entrega.valid">
+                Fecha de  entrega obligatoria
+            </span>
+        </p>
+        <p>
+            <label for="imagen">Imagen</label>
+            <span *ngIf="carne.imagen" style="float: none;">
+                <img src="{{url+'get-imagen/'+carne.imagen}}" style="width: 100px;">
+            </span>
+            <input type="file" #archivoImagen placeholder="Seleccionar imagen" (change)="imagenChangeEvent($event)">
+        </p>
+        <input type="submit" value="Guardar" [disabled]="!carneForm.form.valid">
+    </form>
+</div>
